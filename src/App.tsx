@@ -75,3 +75,81 @@ export const App : React.FC = () => {
   
 
 };
+
+
+//Contador
+
+//   const [numClics, setNumClics] = useState<number>(0);
+
+//con void definimos que es una función que no tiene retorno
+
+//   const manejarClic = ():void => {
+//     setNumClics(numClics + 1);
+//     //console.log("Clic");
+//   }
+//   const reiniciarContador = ():void => {
+//     setNumClics(0);
+//   }
+
+//   (
+//     <div className="App">
+//       <div className="freecodecamp-logo-contenedor">
+//         <img className="freecodecamp-logo"
+//         src={freecodecampLogo}
+//         alt='logo de freecodecamp'  />
+//       </div>
+//       <div className='contenedor-principal'>
+//         <Contador
+//         numClics={numClics} />
+
+//         <Boton 
+//         texto='Clic' 
+//         esBotonDeCLic={true} 
+//         manejarClic={manejarClic} />
+//         <Boton 
+//         texto='Reiniciar' 
+//         esBotonDeCLic={false}
+//          manejarClic={reiniciarContador} />
+//       </div>
+//     </div>
+//   );
+
+
+//Componente boton
+
+
+interface BotonProps {
+  texto: string;
+  esBotonDeCLic: boolean;
+  manejarClic: MouseEventHandler<HTMLButtonElement>;
+}
+
+const Boton: React.FC<BotonProps> = ({ texto, esBotonDeCLic, manejarClic }) => {
+  return (
+    <button
+      className={esBotonDeCLic ? "boton-clic" : "boton-reiniciar"}
+      onClick={manejarClic}
+    >
+      {texto}
+    </button>
+  );
+};
+
+//Componente contador
+
+
+
+interface ContadorProps {
+  numClics: number;
+}
+
+//ContadorProps define las propiedades que se esperan del componente contador
+const Contador: React.FC<ContadorProps> = ({ numClics }) => {
+  return (
+    <div className="contador">
+      {numClics}
+    </div>
+  );
+};
+
+export default Contador;
