@@ -4,7 +4,7 @@ type TodoStatus = "active" | "inactive" |"open" | "close"
 
 interface TodoProps {
     todo: string;
-    // status?: string;//Si ponemos ? la propiedad ya es opcional, no obligatoria como aparece en Todo key
+    // status?: string;//Si ponemos ? la propiedad ya es opcional
     status?: TodoStatus; //Creamos nuestro propio tipado, si cambiamos algo en status nos da un error
 }
 
